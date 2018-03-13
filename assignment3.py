@@ -8,7 +8,7 @@ list = [
 ("Jony", "24", "191", "98"),
 ]
 
-def sort_list():
+def sort_list(list):
     sorted(list, key=operator.itemgetter(0,1,2,3))
-    return (sort_list())
+    return (sort_list(list))
 print(sort_list())
