@@ -1,6 +1,4 @@
-s = input('Enter string')
-
-
+s= input()
 def string_handler(s):
     numbers = 0
     letters = 0
@@ -13,11 +11,12 @@ def string_handler(s):
             except Exception as e:
                 print(e)
         try:
-            if i.isalpha() == True:
+            if i.isalpha() is True:
                 letters+=1
         except Exception as e:
             print(e)
-    return (numbers)
+    return (numbers,letters)
+print(string_handler(s))
 
 
 
