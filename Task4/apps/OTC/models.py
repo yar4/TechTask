@@ -11,7 +11,7 @@ class OTCBase(models.Model):
     is_used = models.BooleanField(verbose_name="is used", default = False)
 
     def apply(self):
-        self.is_used = True         #utilization
+        self.is_used = True
         self.used_in = timezone.now()
         self.save()
 
@@ -22,7 +22,7 @@ class OTCBase(models.Model):
 
 class OTCRegistration(OTCBase):
     '''user registration OTC model'''
-    user = models.ForeignKey(User, related_name = 'reg_otc', null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'reg_otc', null=True, blank=True)
     link = models.CharField(max_length=256, verbose_name="link", blank=True)
 
     def linkgenerate(self):
@@ -30,6 +30,6 @@ class OTCRegistration(OTCBase):
         return link
 
     def save(self, *args, **kwargs):
-        self.link = self.linkgenerate() # only for add in DB. delete it next time
+        self.link = self.linkgenerate()
         super().save(*args, **kwargs)
 

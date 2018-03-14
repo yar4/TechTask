@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from apps.extraapps.OTC.models import OTCRegistration
+from apps.OTC.models import OTCRegistration
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 # Create your models here.
@@ -13,7 +13,7 @@ class RegistrationTry(models.Model):
     country = CountryField()
     city = models.CharField(max_length=60)
     extra_data = models.TextField(blank=True, null=True)
-    otc = models.ForeignKey(OTCRegistration, related_name='reg_otc', null=True, blank = True)
+    otc = models.ForeignKey(OTCRegistration,on_delete=models.CASCADE, related_name='reg_otc', null=True, blank = True)
     created_in = models.DateTimeField(auto_now_add= True)
     is_finished = models.BooleanField(default=False)
     finished_in = models.DateTimeField(null = True, blank = True)
