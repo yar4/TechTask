@@ -17,11 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from apps.userauth.api.views import HomeView
+from apps.userauth.api.views import signup as SignUp
 
 urlpatterns = [
-url(r'^$', HomeView, name='home'),
+    url(r'^$', HomeView, name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logout.html'}, name='logout'),
+    url(r'^signup/$', SignUp, name='signup')
 ]
