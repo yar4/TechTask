@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.mailer',
     'apps.OTC',
     'apps.userauth',
+    'apps.blog',
 
 ]
 
@@ -77,6 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Task4.wsgi.application'
 
+LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
